@@ -132,3 +132,7 @@
   --ui-text: var(--ui-color-darkness-50);
   --ui-text-highlighted: white;
 }
+
+.apexcharts-tooltip {
+  color: white;
+}

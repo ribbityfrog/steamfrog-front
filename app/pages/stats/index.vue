@@ -1,13 +1,7 @@
 <script setup lang="ts">
 
-// const options = {
-//     chart: {
-//         type: 'pie'
-//     },
-//     labels: ['Games', 'DLCs']
-// }
-// const series = [85000,120000]
-
+const series = [85000,120000]
+const labels = ['Games', 'DLCs']
 </script>
 
 <template>
@@ -21,10 +15,11 @@
                 See you tomorrow
             </p>
         </Section>
-        <!-- <Section>
+        <Section>
             <ClientOnly>
-                <ApexChart width="500" :series="series" :options="options" />
+                <Chart width="500" type="pie" :labels="labels" :series="series" />
+                <!-- <ApexChart width="500" :series="series" type="pie" :options="options" /> -->
             </ClientOnly>
-        </Section> -->
+        </Section>
     </Page>
 </template>
