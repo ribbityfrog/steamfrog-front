@@ -40,6 +40,13 @@ export default defineAppConfig({
                 td: 'text-(--ui-text-dimmed)',
             }
         },
+        accordion: {
+            slots: {
+                content: 'mb-6',
+                label: 'cursor-pointer text-lg transform-color duration-300 ease-in-out hover:text-(--ui-second)/85 group-data-[state=open]:text-(--ui-second)',
+                trailingIcon: 'cursor-pointer text-(--ui-confirm) hover:text-(--ui-second) group-data-[state=open]:text-(--ui-cancel)'
+            }
+        }
         // horizontalNavigation: {
         //     base: 'px-2.5 py-2 text-lg',
         //     before: 'hover:before:bg-slate-hover',

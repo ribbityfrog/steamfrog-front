@@ -43,7 +43,11 @@ const menus = {
                 label: 'Global',
                 to: '/stats'
             }
-        ]
+        ],
+    },
+    {
+        label: 'FAQ',
+        to: '/faq',
     }],
 
     connected: [{

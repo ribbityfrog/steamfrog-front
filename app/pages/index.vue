@@ -16,7 +16,7 @@
             </p>
             <p>
                 I gathered a lot of data, but there are still tackled with my own opinions <br>
-                You can read more about it in the FAQ (comfing soon) or directly come ask on <LinkDiscord />
+                You can read more about it in the <KitLink to="/faq" local>FAQ</KitLink> or directly come ask on <LinkDiscord />
             </p>
             <p>
                 <span class="font-semibold">Full disclaimer</span> <br>
