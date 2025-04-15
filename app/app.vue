@@ -9,9 +9,6 @@ toaster.init()
         <NuxtLayout>
             <NuxtPage />
         </NuxtLayout>
-
-        <!-- <UModals /> -->
-        <!-- <UNotifications /> -->
     </UApp>
 </template>
 

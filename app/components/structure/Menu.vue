@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import type { DropdownMenuItem, NavigationMenuItem } from '@nuxt/ui'
 
-// const localePath = useLocalePath()
-
 export type Menu = keyof typeof menus
 
 const props = defineProps({
@@ -32,13 +30,20 @@ const props = defineProps({
     }
 })
 
-// const localeMenu = ref(getLocaleMenu())
-
 const menus = {
     main: [{
         label: 'Home',
         to: '/',
-        // to: localePath('/')
+    },
+    {
+        label: 'Stats',
+        to: '/stats',
+        children: [
+            {
+                label: 'Global',
+                to: '/stats'
+            }
+        ]
     }],
 
     connected: [{
@@ -68,8 +73,6 @@ const menus = {
 
 const ui = {
 }
-
-// const refMenu = ref([...menus[props.menu]])
 
 </script>
 
