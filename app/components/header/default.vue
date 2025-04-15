@@ -39,23 +39,27 @@ const props = defineProps({
             <NuxtLink to="/">
                 <NuxtImg
                     src="/img/brand/logo.png"
-                    width="150"
+                    width="100"
                     fit="inside"
                     alt="Logo"
-                    class="object-contain w-[150px]"/>
+                    class="object-contain w-[100px]"/>
             </NuxtLink>
         </div>
-        <!-- <span class="flex-grow"/> -->
+        <Flex center class="gap-x-3">
+            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
+            <p class="font-semibold text-4xl text-(--ui-primary)">in construction</p>
+            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
+        </Flex>
         <Flex center class="gap-x-4">
             <Menu v-if="props.menu !== undefined" :menu="menu" />
-            <ClientOnly v-if="!props.noAccount">
+            <!-- <ClientOnly v-if="!props.noAccount">
                 <Flex v-if="leAuth.isAuthenticated" col center>
                     <Menu menu="account" dropdown="Account" />
                 </Flex>
                 <Flex v-else col center>
                     <AccountModalConnect />
                 </Flex>
-            </ClientOnly>
+            </ClientOnly> -->
             <Flex center class="gap-x-3 ml-4">
                 <!-- <div v-if="!props.noLang">
                     <UButton v-if="locale === 'fr'" variant="round" @click="setLocale('en')">En</UButton>

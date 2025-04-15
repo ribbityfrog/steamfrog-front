@@ -44,11 +44,16 @@ watch(() => route.path, () => {
         <NuxtLink to="/">
             <NuxtImg
                 src="/img/brand/logo.png"
-                width="100"
+                width="50"
                 fit="inside"
                 alt="Logo"
-                class="object-contain w-[100px]"/>
+                class="object-contain w-[50px]"/>
         </NuxtLink>
+        <Flex center class="gap-x-2">
+            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
+            <p class="font-medium text-lg text-(--ui-primary)">in construction</p>
+            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
+        </Flex>
         <USlideover
             v-model:open="isMenuOpen"
             title="Menu"
@@ -57,9 +62,12 @@ watch(() => route.path, () => {
             <template #body>
                 <Flex col end class="gap-y-4">
                     <Menu v-if="props.menu !== undefined" :menu="props.menu" :white="props.white" vertical />
-                    <ClientOnly>
-                        <Flex v-if="!props.noAccount && leAuth.isAuthenticated" col center>
+                    <ClientOnly v-if="!props.noAccount">
+                        <Flex v-if="leAuth.isAuthenticated" col center>
                             <Menu menu="account" dropdown="Account" />
+                        </Flex>
+                        <Flex v-else col center>
+                            <AccountModalConnect />
                         </Flex>
                     </ClientOnly>
                     <KitThemeDarkSwitch v-if="!props.noDark" />
