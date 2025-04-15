@@ -42,7 +42,7 @@ export default defineAppConfig({
         },
         accordion: {
             slots: {
-                content: 'mb-6',
+                content: 'data-[state=open]:mb-6 data-[state=close]:mt-0',
                 label: 'cursor-pointer text-lg transform-color duration-300 ease-in-out hover:text-(--ui-second)/85 group-data-[state=open]:text-(--ui-second)',
                 trailingIcon: 'cursor-pointer text-(--ui-confirm) hover:text-(--ui-second) group-data-[state=open]:text-(--ui-cancel)'
             }

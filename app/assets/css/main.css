@@ -19,17 +19,17 @@
   --breakpoint-laptop: 1200px;
   --breakpoint-desktop: 1800px;
 
-  --color-slate-50: #eef7ef;
-  --color-slate-100: #e0f0e2;
-  --color-slate-200: #bedfc1;
-  --color-slate-300: #9fd1a4;
-  --color-slate-400: #80c286;
-  --color-slate-500: #61b369;
-  --color-slate-600: #499751;
-  --color-slate-700: #3a7840;
-  --color-slate-800: #2b5930;
-  --color-slate-900: #1b381e;
-  --color-slate-950: #0d1c0f;
+  --color-slate-50: #f1f6ee;
+  --color-slate-100: #e2eedd;
+  --color-slate-200: #c9debf;
+  --color-slate-300: #accd9d;
+  --color-slate-400: #93bd7f;
+  --color-slate-500: #76ac5d;
+  --color-slate-600: #5e8e49;
+  --color-slate-700: #466936;
+  --color-slate-800: #2f4724;
+  --color-slate-900: #162211;
+  --color-slate-950: #0b1109;
 
   --color-slateSecond-50: #fff8e6;
   --color-slateSecond-100: #fef2cd;

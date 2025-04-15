@@ -2,6 +2,10 @@
 
 const items = [
     {
+        slot: 'source',
+        label: 'Where do you get your data ?'
+    },
+    {
         slot: 'mistake',
         label: 'I think I found a mistake'
     },
@@ -47,6 +51,12 @@ const items = [
         <Hh1>FAQ</Hh1>
         <Section>
             <KitAccordion :items="items" trailing-icon="i-lucide-plus">
+                <template #source>
+                    <p>
+                        Steam and only Steam, from the Steam API for now. <br>
+                        I would like to most direct possible data without any alteration.
+                    </p>
+                </template>
                 <template #mistake>
                     <p>
                         Yeah there is probably more than one. <br>
