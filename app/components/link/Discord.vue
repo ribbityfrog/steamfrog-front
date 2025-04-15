@@ -1,3 +1,3 @@
 <template>
-    <KitLink to="https://discord.gg/7X4dbf4jY3" tab>Discord</KitLink>
+    <KitLink to="https://discord.gg/7qJyXM2qBP" tab>Discord</KitLink>
 </template>
