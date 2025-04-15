@@ -49,11 +49,7 @@ watch(() => route.path, () => {
                 alt="Logo"
                 class="object-contain w-[50px]"/>
         </NuxtLink>
-        <Flex center class="gap-x-2">
-            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
-            <p class="font-medium text-lg text-(--ui-primary)">in construction</p>
-            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
-        </Flex>
+        <ConstructionBasic />
         <USlideover
             v-model:open="isMenuOpen"
             title="Menu"

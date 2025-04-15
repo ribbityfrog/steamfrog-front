@@ -1,8 +1,9 @@
 <template>
     <Flex full between>
         <ContactBasic/>
-        <p>
-            Join me on <LinkDiscord />
-        </p>
+        <Flex col center>
+            <p>Join me on</p>
+            <LinkDiscord />
+        </Flex>
     </Flex>
 </template>

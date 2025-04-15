@@ -38,7 +38,7 @@
                         Frontend powered by <KitLink to="https://nuxt.com" tab>Nuxt</KitLink>
                     </p>
                     <p>
-                        Data hosted on <KitLink to="https://www.clever-cloud.com" tab>Clever cloud</KitLink>
+                        Data hosted on <KitLink to="https://www.clever-cloud.com" tab>Clever Cloud</KitLink>
                     </p>
                     <p>
                         UI designed with <KitLink to="https://ui.nuxt.com" tab>Nuxt UI</KitLink>

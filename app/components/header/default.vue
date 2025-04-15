@@ -27,15 +27,7 @@ const props = defineProps({
 
 <template>
     <Flex full between class="px-8">
-        <div>
-            <!-- <NuxtLinkLocale to="/">
-                <NuxtImg
-                    src="/images/brand/logo.png"
-                    width="350"
-                    fit="inside"
-                    alt="Logo Launchbase"
-                    class="object-contain w-[200px]"/>
-            </NuxtLinkLocale> -->
+        <Flex center class="gap-x-6">
             <NuxtLink to="/">
                 <NuxtImg
                     src="/img/brand/logo.png"
@@ -44,11 +36,7 @@ const props = defineProps({
                     alt="Logo"
                     class="object-contain w-[100px]"/>
             </NuxtLink>
-        </div>
-        <Flex center class="gap-x-3">
-            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
-            <p class="font-semibold text-4xl text-(--ui-primary)">in construction</p>
-            <KitIcon name="i-lucide-construction" class="text-(--ui-second)"/>
+            <ConstructionBasic />
         </Flex>
         <Flex center class="gap-x-4">
             <Menu v-if="props.menu !== undefined" :menu="menu" />
