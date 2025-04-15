@@ -16,7 +16,7 @@
             </p>
             <p>
                 I gathered a lot of data, but there are still tackled with my own opinions <br>
-                You can read more about it in the FAQ or directly come ask on Discord
+                You can read more about it in the FAQ (comfing soong) or directly come ask on <LinkDiscord />
             </p>
             <p>
                 <span class="font-semibold">Full disclaimer</span> <br>
@@ -24,7 +24,7 @@
                 If you want "my" data for your project, I'm fully open to talk about anything... related to it
             </p>
         </Section>
-        <Section title="Developped thanks to" title-center class="text-center mt-12" class-content="gap-y-4">
+        <Section title="Sculpted thanks to" title-center class="text-center mt-12" class-content="gap-y-4">
             <div class="space-y-2">
                 <p>
                     The main tools I used will never be thanked enough<br>

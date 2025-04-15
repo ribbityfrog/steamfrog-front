@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { isOperationType, type OperationType } from '~/app/schemas/accounts/types'
-
-// defineI18nRoute(false)
+import { isOperationType, type OperationType } from '~/schemas/accounts/types'
 
 definePageMeta({
     layout: 'empty'
@@ -9,8 +7,6 @@ definePageMeta({
 
 if (import.meta.client)
 {
-    // const localePath = useLocalePath()
-
     const keys = useRoute().params.slug
 
     if (Array.isArray(keys) && keys.length == 3 && isOperationType(keys[0]!))
