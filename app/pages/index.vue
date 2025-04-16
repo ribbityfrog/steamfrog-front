@@ -11,7 +11,7 @@
                 I went for the classic developper approach : Let's build it, it'll be fun somehow
             </p>
             <p>
-                As you may have noticed, it's <span class="font-semibold">in construction</span> <br>
+                As you may have noticed, it's <span class="font-semibold">under construction</span> <br>
                 I'm working from time to time on it, resetting the whole db a lot, so it'll be done from time to time ^^
             </p>
             <p>

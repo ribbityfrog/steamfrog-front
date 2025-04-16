@@ -8,7 +8,7 @@
             <HeaderMobile v-if="$device.isMobile" :menu="leAuth.isAuthenticated ? 'connected' : 'main'" />
             <HeaderDefault v-else :menu="leAuth.isAuthenticated ? 'connected' : 'main'" />
         </Section>
-        <Section group full class="grow pt-4">
+        <Section group full class="grow py-4">
             <slot />
         </Section>
         <footer class="w-full">

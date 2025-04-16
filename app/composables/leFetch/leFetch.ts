@@ -8,7 +8,6 @@ const defaultOptions: Record<'GET' | 'OTHER', PayloadOptions> = {
         memory: 'MEMORIZED',
         defaultData: [],
         isAbortable: true,
-        refresh: true
     },
     OTHER: {
         memory: 'ONCE',
@@ -29,8 +28,15 @@ function initPayloadOptions(methodType: MethodType = 'GET', payloadOptions?: Par
     else
         Object.assign(options, payloadOptions)
 
-    if (options.memory == 'PERSISTENT' && options.expiry === undefined)
-        options.expiry = 8
+    if (options.memory === 'PERSISTENT')
+    {
+        if (options.expiry === undefined)
+            options.expiry = 8
+        if (options.refresh === undefined)
+            options.refresh = false
+    }
+    if (options.refresh === undefined)
+        options.refresh = true
 
     return options
 }

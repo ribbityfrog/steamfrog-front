@@ -9,6 +9,7 @@ type TableColumnEnriched<T = any> = TableColumn<T> & {
     hideable?: boolean
     hidden?: boolean
     date?: boolean
+    price?: boolean
 }
 
 const Flex = resolveComponent('Flex')
@@ -72,21 +73,22 @@ if (Object.keys(instance?.slots || {}).includes('expanded') && props.columns[0]?
     }, )
 
 props.columns.forEach((entry: any) => {
-    const { sortable, hideable, hidden, date, bool, ...rest } = entry
+    const { sortable, hideable, hidden, date, bool, price, ...rest } = entry
     const header = rest.header
 
-    if (typeof entry.accessorKey === 'string' && entry.accessorKey.length > 0)
+    const key = entry.id ?? entry.accessorKey
+    if (typeof key === 'string' && key.length > 0)
     {
         if (date)
             rest.cell = ({ row }: any) => {
-                const rowDate = row.getValue(entry.accessorKey)
+                const rowDate = row.getValue(key)
                 if (typeof rowDate !== 'string' || rowDate.length <= 0)
                     return '-'
                 return dateToText(rowDate)
             }
         else if (bool)
             rest.cell = ({ row }: any) => {
-                const rowBool = row.getValue(entry.accessorKey)
+                const rowBool = row.getValue(key)
                 if (typeof rowBool !== 'boolean')
                     return '-'
                 return h(KitIcon, { 
@@ -94,7 +96,23 @@ props.columns.forEach((entry: any) => {
                     aria: rowBool ? 'True' : 'False',
                     class: rowBool ? 'text-(--ui-confirm)' : 'text-(--ui-cancel)'
                 })
-            }}
+            }
+        else if (price)
+            rest.cell = ({ row }: any) => {
+                const rowPrice = row.getValue(key)
+
+                if (!rowPrice)
+                    return '-'
+
+                const convertedPrice = +rowPrice
+
+                if (Number.isNaN(convertedPrice))
+                    return '-'
+                
+                return numberToPrice(convertedPrice / 100)
+            }
+    }
+
 
     if (typeof header !== 'string' || header.length <= 0)
         return preparedColumns.push(rest)
@@ -169,7 +187,7 @@ watch(dataCount, (newCount, oldCount) => {
 </script>
 
 <template>
-    <Flex col center full class="gap-y-4">
+    <Flex col center class="gap-y-4">
         <Flex tight between wrap class="gap-2">
             <UFormField v-if="props.filterable" name="filterGlobal" label="Global filter">
                 <UInput v-model="globalFilter" placeholder="Search for anything..." />

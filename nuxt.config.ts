@@ -63,13 +63,13 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-            title: 'LeX Page',
+            title: 'Steamfrog',
             link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
         },
         pageTransition: { name: 'page', mode: 'out-in' }
     },
     colorMode: {
-        preference: 'dark',
+        preference: 'system',
         fallback: 'light',
     },
 })

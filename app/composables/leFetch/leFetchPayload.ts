@@ -19,7 +19,7 @@ export class LeFetchPayload {
     private _callbacks: LeFetchCallbacks[] = []
     protected _fetchError: { raw: any, parsed: ExceptIntels | undefined } | undefined
 
-    get status(): string { return this._status.value }
+    get status(): PayloadStatus { return this._status.value }
     get RefStatus(): Ref<PayloadStatus> { return this._status }
     get data(): any { return this._data.value }
     get isPending(): boolean { return this.status == 'PENDING' }
