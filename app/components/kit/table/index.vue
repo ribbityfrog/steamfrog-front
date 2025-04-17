@@ -26,6 +26,10 @@ const props = defineProps({
         type: Array as PropType<TableColumnEnriched[]>,
         default: () => []
     },
+    hMax: {
+        type: String,
+        default: ''
+    },
     sticky: {
         type: Boolean,
         default: false
@@ -188,7 +192,7 @@ watch(dataCount, (newCount, oldCount) => {
 </script>
 
 <template>
-    <Flex col center class="gap-y-4">
+    <Flex col tight center class="gap-y-4">
         <Flex tight between wrap class="gap-2">
             <UFormField v-if="props.filterable" name="filterGlobal" label="Global filter">
                 <UInput v-model="globalFilter" placeholder="Search for anything..." />
@@ -212,12 +216,12 @@ watch(dataCount, (newCount, oldCount) => {
             v-model:global-filter="globalFilter"
             v-model:sorting="sorting"
             v-model:pagination="paginationConfig"
+            :class="`max-w-full ${props.hMax}`"
             :pagination-options="{ getPaginationRowModel: getPaginationRowModel() }"
             :data="data"
             :columns="preparedColumns"
-            class="w-full"
             loading-state="carousel"
-            :sticky="props.sticky" >
+            :sticky="props.sticky">
             <template v-for="(slotFn, slotName) in instance?.slots" #[slotName]="slotProps">
                 <slot :name="slotName" v-bind="slotProps || {}" />
             </template>

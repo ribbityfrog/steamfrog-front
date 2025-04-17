@@ -146,7 +146,7 @@ else if (props.startCenter)
 else if (props.endCenter)
     justifyAlign = 'justify-end items-center content-center'
 
-const classFlex = `${props.inline ? 'inline-flex' : `${width} flex ${direction}`} ${justifyAlign} ${debugDisplay}`
+const classFlex = `${props.inline ? 'inline-flex' : `${width} flex ${direction}`} ${justifyAlign} ${debugDisplay} min-w-0`
 
 </script>
 

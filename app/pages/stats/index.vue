@@ -220,7 +220,7 @@ const yearlyCounts = computed(() => {
                         <span class="font-medium">Let's just hate them together, thanks.</span> <br>
                         <span class="text-xs italic">There is a bunch of dlcs too but I'm sad enough with just the games</span>
                     </p>
-                    <KitTable v-model="undated.data" :columns="undatedColumns">
+                    <KitTable v-model="undated.data" :columns="undatedColumns" sticky>
                         <template #banner-cell="{ row }">
                             <SteamImg :src="+row.original.id" />
                         </template>

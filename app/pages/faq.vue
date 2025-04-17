@@ -31,7 +31,7 @@ const items = [
     },
     {
         slot: 'cod',
-        label: 'Why is Call of Duty a huge let down on multiplayer ?'
+        label: 'Why is Call of Duty\'s multiplayer a huge let down ?'
     },
     {
         slot: 'frog',
