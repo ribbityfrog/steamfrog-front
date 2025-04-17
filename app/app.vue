@@ -2,6 +2,14 @@
 
 toaster.init()
 
+useSeoMeta({
+    title: 'Steamfrog',
+    ogTitle: 'Steamfrog',
+    description: 'You never knew Steam store stats could trigger that many emotions.',
+    ogDescription: 'You never knew Steam store stats could trigger that many emotions.',
+    ogImage: '/img/brand/logo.png',
+})
+
 </script>
 
 <template>
