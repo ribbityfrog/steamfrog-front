@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const colorMode = useColorMode()
+// const colorMode = useColorMode()
 
 const props = defineProps({
     type: {
@@ -36,10 +36,24 @@ const props = defineProps({
     }
 })
 
+// const colors = computed(() => colorMode.value === 'dark' ?
+//     {
+//         text: '#ff0000',
+//         dimmed: '#ffffff',
+//     } :
+//     {
+//         text: '#000000',
+//         dimmed: '#000000',
+//     }
+// )
+
+const fontFamilyTitle = 'Inter, sans-serif'
+const fontFamilyText = 'Montserrat, sans-serif'
+
 const computedOptions = computed(() => ({
     ...{
         theme: {
-            palette: 'palette8'
+            palette: 'palette7'
         },
         chart: {
             background: 'transparent',
@@ -55,23 +69,48 @@ const computedOptions = computed(() => ({
         title: {
             text: props.title,
             style: {
-                color: colorMode.value === 'dark' ? '#ffffff' : '#000000'
+                fontFamily: fontFamilyTitle,
+                fontWeight: 500
             }
         },
         subtitle: {
             text: props.subtitle,
             style: {
-                color: colorMode.value === 'dark' ? '#ffffff' : '#000000'
+                fontFamily: fontFamilyText
             }
         },
         legend: {
             labels: {
-                colors: colorMode.value === 'dark' ? '#ffffff' : '#000000'
+                // colors: colors.value.text
             }
         },
         tooltip: {
+            enabled: props.type === 'bar' ? false : true,
+            followCursor: true,
+            fillSeriesColor: true,
+            x: {
+                show: false
+            },
+            style: {
+                fontSize: '16px',
+                fontFamily: fontFamilyTitle,
+            }
         },
         labels: props.labels
+    },
+    xaxis: {
+        labels: {
+            style: {
+                fontFamily: fontFamilyText
+            }
+        }
+    },
+    yaxis: {
+        labels: {
+            style: {
+                fontFamily: fontFamilyText
+            }
+        }
     },
     ...props.options
 }))

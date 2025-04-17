@@ -8,6 +8,7 @@ type TableColumnEnriched<T = any> = TableColumn<T> & {
     sortable?: boolean
     hideable?: boolean
     hidden?: boolean
+    bool?: boolean
     date?: boolean
     price?: boolean
 }

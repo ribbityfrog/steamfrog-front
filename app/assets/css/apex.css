@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+.apexcharts-tooltip {
+    color: white;
+  }
+
+.apexcharts-legend-text
+{
+  color: var(--ui-text) !important;
+}
+
+.apexcharts-title-text {
+  fill: var(--ui-text);
+}
+  
+.apexcharts-subtitle-text, .apexcharts-xaxis-title, .apexcharts-yaxis-title {
+  fill: var(--ui-text-dimmed);
+}
+
+.apexcharts-xaxis-label, .apexcharts-yaxis-label {
+  fill: var(--ui-text-muted);
+}
