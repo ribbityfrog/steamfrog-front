@@ -11,7 +11,7 @@ const items = [
     },
     {
         slot: 'decommissionned',
-        label: 'You have ALL the games and DLCs ?'
+        label: 'You have ALL Games and DLCs ?'
     },
     {
         slot: 'together',
@@ -31,7 +31,7 @@ const items = [
     },
     {
         slot: 'cod',
-        label: 'Why is Coll of Duty a huge let down on multiplayer ?'
+        label: 'Why is Call of Duty a huge let down on multiplayer ?'
     },
     {
         slot: 'frog',
@@ -40,9 +40,14 @@ const items = [
     {
         slot: 'net',
         label: 'But why .net ?'
+    },
+    {
+        slot: 'logo',
+        label: 'But... why a frog ?'
     }
 ]
 
+const divSpace = 'space-y-2'
 
 </script>
 
@@ -64,24 +69,36 @@ const items = [
                     </p>
                 </template>
                 <template #decommissionned>
-                    <p>
-                        I use the Steam IStoreService to have the list of games on the Steam Store and filter to keep only the ones available in US. <br>
-                        If they fully remove it, I will not have it and don't intend to try and keep it. <br>
-                        What I look for is mainly a view of the "present" store. <br>
-                        Since I reset the base often it's not a problem now, but I'll later automatically remove the games that are no longer listed by the store.
-                    </p>
+                    <div :class="divSpace">
+                        <p>
+                            I use the Steam IStoreService to have the list of games on the Steam Store and filter to keep only the ones available in US. <br>
+                            If they fully remove it, I will not have it and don't intend to try and keep it. <br>
+                        </p>
+                        <p>
+                            What I look for is mainly a view of the "present" store. <br>
+                        </p>
+                        <p>
+                            Since I reset the base often it's not a problem now, but I'll later automatically remove the games that are no longer listed by the store.
+                        </p>
+                    </div>
                 </template>
                 <template #together>
-                    <p>
-                        I don't know how yet, but I want to collaborate with other projects. <br>
-                        It's often assumed that since the data is available through Steam API, anybody can do something with it. <br>
-                        I disagree, it was a huge pain, I bet there is a lot a people not well-versed enough in tech that have marvelous ideas. <br>
-                        You have my dets in the footer, let's talk
-                    </p>
+                    <div :class="divSpace">
+                        <p>
+                            I don't know how yet, but I want to collaborate with other projects. <br>
+                            It's often assumed that since the data is available through Steam API, anybody can do something with it. <br>
+                        </p>
+                        <p>
+                            I disagree, it was a huge pain, I bet there is a lot a people not well-versed enough in tech that have marvelous ideas. <br>
+                        </p>
+                        <p>
+                            You have my dets in the footer, let's talk
+                        </p>
+                    </div>
                 </template>
                 <template #update>
                     <p>
-                        Right now, when I feel like it. <br>
+                        As for today, when I feel like it. <br>
                         When I'll consider the project to be advanced enough, it will be daily updated at best, weekly at worst
                     </p>
                 </template>
@@ -99,31 +116,40 @@ const items = [
                     </p>
                 </template>
                 <template #dlc>
-                    <p>
-                        Games are DLC have close to no difference. <br>
-                        They have their own price, tags, age limit, release date, reviews... everything.
-                    </p>
-                    <p>
-                        The main difference is : They don't have achievements. <br>
-                        That's why there is that many people complaining they can't 100% a game because they don't have the DLCs.
-                    </p>
+                    <div :class="divSpace">
+                        <p>
+                            Games are DLC have close to no difference. <br>
+                            They have their own price, tags, age limit, release date, reviews... everything.
+                        </p>
+                        <p>
+                            The main difference is : They don't have achievements. <br>
+                            That's why there is that many people complaining they can't 100% a game because they don't have the DLCs.
+                        </p>
+                    </div>
                 </template>
                 <template #cod>
-                    <p>
-                        It's mainly because they match controller players with keyboard/mouse players. <br>
-                        The aim assist is just so strong, they just need to shoot at your general direction to headshot the joy out of you. <br>
-                        I'm not salty, next question.
-                    </p>
+                    <div :class="divSpace">
+                        <p>
+                            It's mainly because they match controller players with keyboard/mouse players. <br>
+                            The aim assist is just so strong, they just need to shoot at your general direction to headshot the joy out of you. <br>
+                        </p>
+                        <p>
+                            I'm not salty, next question.
+                        </p>
+                    </div>
                 </template>
                 <template #frog>
                     <p>
-                        Because steampowered.com and steamdb.com were both taken
+                        Because steampowered.com and steamdb.info were both taken
                     </p>
                 </template>
                 <template #net>
                     <p>
                         Nostalgia, cost and availability
                     </p>
+                </template>
+                <template #logo>
+                    <img src="/img/brand/logo.png">
                 </template>
             </KitAccordion>
         </Section>

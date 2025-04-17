@@ -112,6 +112,25 @@ const computedOptions = computed(() => ({
             }
         }
     },
+    responsive: [
+        {
+            breakpoint: 1000,
+            options: {
+                chart: {
+                    width: 350
+                },
+                legend: {
+                    position: 'bottom'
+                },
+                tooltip: {
+                    followCursor: false,
+                    style: {
+                        fontSize: '12px',
+                    }
+                },
+            }
+        }
+    ],
     ...props.options
 }))
 

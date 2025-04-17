@@ -111,7 +111,7 @@ const yearlyCounts = computed(() => {
         </Section>
         <ClientOnly>
             <Section v-if="stats.isSuccessful" goup class-content="gap-y-12">
-                <Section class-content="gap-y-6">
+                <Section class-content="gap-y-12">
                     <Flex>
                         <ChartPie
                             width="500"
@@ -120,7 +120,7 @@ const yearlyCounts = computed(() => {
                             :labels="['Games', 'DLCs']"
                             :series="[totalCounts.gamesCount, totalCounts.dlcsCount]" />
                     </Flex>
-                    <Flex full evenly>
+                    <Flex full evenly wrap class="gap-y-8">
                         <ChartBar
                             horizontal
                             distributed

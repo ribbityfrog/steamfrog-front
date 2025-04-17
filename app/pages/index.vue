@@ -8,7 +8,7 @@
         <Section class="text-center" class-content="gap-y-4">
             <p>
                 I was looking for stats about the Steam Store, but nothing tickled my fancy. <br>
-                I went for the classic developper approach : Let's build it, it'll be fun somehow
+                So... let's build it, it'll be fun somehow
             </p>
             <p>
                 As you may have noticed, it's <span class="font-semibold">under construction</span> <br>
