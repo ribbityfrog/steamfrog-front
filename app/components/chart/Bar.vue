@@ -2,7 +2,7 @@
 
 const props = defineProps({
     series: {
-        type: Array as PropType< { data: { x: string, y: number }[] }[]>,
+        type: [Array, null] as PropType< { data: { x: string, y: number }[] }[] | null>,
         required: true
     },
     labels: {
@@ -17,7 +17,7 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    distributed: {
+    undistributed: {
         type: Boolean,
         default: false
     }
@@ -28,7 +28,7 @@ const options = {
         bar: {
             borderRadius: 5,
             horizontal: props.horizontal,
-            distributed: props.distributed
+            distributed: !props.undistributed
         }
     },
     yaxis: {

@@ -12,14 +12,15 @@ const props = defineProps({
         required: true
     },
     series: {
-        type: Array as PropType<
+        type: [Array, null] as PropType<
         number[] |
         { name: string, data: number[] }[] |
         [number, number][] | 
         { data: { x: number, y: number }[] }[] | 
         { data: { x: string, y: number }[] }[] | 
         { data: { x: number, y: string }[] }[] | 
-        { data: { x: `${number}/${number}/${number}`, y: number }[] }[] >,
+        { data: { x: `${number}/${number}/${number}`, y: number }[] }[] |
+        null >,
         required: true
     },
     title: {
@@ -33,6 +34,14 @@ const props = defineProps({
     options: {
         type: Object as PropType<any>,
         default: () => ({})
+    },
+    size: {
+        type: String,
+        default: undefined
+    },
+    width: {
+        type: Number,
+        default: undefined
     }
 })
 
@@ -49,6 +58,25 @@ const props = defineProps({
 
 const fontFamilyTitle = 'Inter, sans-serif'
 const fontFamilyText = 'Montserrat, sans-serif'
+
+let chartWidth = 500
+let skeletonSize = 'w-[480px] h-[350px]'
+if (props.width)
+    chartWidth = props.width
+else
+{
+    if (props.size === 'sm')
+    {
+        chartWidth = 350
+        skeletonSize = 'w-[320px] h-[200px]'
+    }
+    else if (props.size === 'lg')
+    {
+        chartWidth = 1000
+        skeletonSize = 'w-[960px] h-[600px]'
+    }
+}
+
 
 const computedOptions = computed(() => ({
     ...{
@@ -137,5 +165,15 @@ const computedOptions = computed(() => ({
 </script>
 
 <template>
-    <ApexChart :type="props.type" :labels="props.labels" :options="computedOptions" :series="props.series" />
+    <Transition name="slide-fade" mode="out-in">
+        <ApexChart
+            v-if="props.series !== null"
+            :width="chartWidth"
+            :type="props.type"
+            :labels="props.labels"
+            :options="computedOptions"
+            :series="props.series"
+            v-bind="$attrs" />
+        <USkeleton v-else :class="`${skeletonSize} ${props.type === 'pie' || props.type === 'donut' ? 'rounded-full' : ''}`"/>
+    </Transition>
 </template>

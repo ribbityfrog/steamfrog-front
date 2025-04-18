@@ -4,7 +4,7 @@ import type { TableColumn } from '@nuxt/ui'
 import { getPaginationRowModel } from '@tanstack/vue-table'
 import { UTable } from '#components'
 
-type TableColumnEnriched<T = any> = TableColumn<T> & {
+export type TableColumnEnriched<T = any> = TableColumn<T> & {
     sortable?: boolean
     hideable?: boolean
     hidden?: boolean
@@ -25,6 +25,10 @@ const props = defineProps({
     columns: {
         type: Array as PropType<TableColumnEnriched[]>,
         default: () => []
+    },
+    loading: {
+        type: Boolean,
+        default: false
     },
     hMax: {
         type: String,
@@ -182,9 +186,10 @@ const paginationConfig = ref({
     pageIndex: 0,
     pageSize: props.pagination
 })
-const dataCount = computed(() => table.value?.tableApi.getFilteredRowModel().rows.length || 0)
+const dataCount = computed(() => table.value?.tableApi.getFilteredRowModel().rows.length || data.value.length || 0)
 
 watch(dataCount, (newCount, oldCount) => {
+    console.log(newCount, oldCount)
     if (newCount < oldCount)
         paginationConfig.value.pageIndex = 0
 })
@@ -198,7 +203,8 @@ watch(dataCount, (newCount, oldCount) => {
                 <UInput v-model="globalFilter" placeholder="Search for anything..." />
             </UFormField>
             <div v-else/>
-            <KitTablePagination v-if="!$device.isMobile && dataCount > props.pagination" :table="table!.tableApi" />
+            <KitTablePagination v-if="!$device.isMobile && dataCount > props.pagination && table?.tableApi" :table="table.tableApi" :count="dataCount" />
+            <div v-else/>
             <UFormField v-if="hideables.length > 0" name="hideable" label="Hidden columns">
                 <USelectMenu
                     v-model="columnVisibilitySelected"
@@ -208,14 +214,16 @@ watch(dataCount, (newCount, oldCount) => {
                     placeholder="No column hidden"
                     class="w-48" />
             </UFormField>
+            <div v-else/>
         </Flex>
-        <KitTablePagination v-if="$device.isMobile && dataCount > props.pagination" :table="table!.tableApi" class="self-end"/>
+        <KitTablePagination v-if="$device.isMobile && dataCount > props.pagination && table?.tableApi" :table="table.tableApi" :count="dataCount" class="self-end"/>
         <UTable
             ref="table"
             v-model:column-visibility="columnVisibility"
             v-model:global-filter="globalFilter"
             v-model:sorting="sorting"
             v-model:pagination="paginationConfig"
+            :loading="loading"
             :class="`max-w-full ${props.hMax}`"
             :pagination-options="{ getPaginationRowModel: getPaginationRowModel() }"
             :data="data"
@@ -228,7 +236,7 @@ watch(dataCount, (newCount, oldCount) => {
         </UTable>
         <Flex tight between>
             <div />
-            <KitTablePagination v-if="dataCount > props.pagination" :table="table!.tableApi" />
+            <KitTablePagination v-if="dataCount > props.pagination && table?.tableApi" :table="table.tableApi" :count="dataCount" class="self-end"/>
         </Flex>
     </Flex>
 </template>

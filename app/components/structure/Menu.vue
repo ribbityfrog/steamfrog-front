@@ -40,9 +40,25 @@ const menus = {
         to: '/stats',
         children: [
             {
-                label: 'Global',
+                label: 'Basics',
                 to: '/stats'
-            }
+            },
+            {
+                label: 'Brokens',
+                to: '/stats/brokens'
+            },
+            {
+                label: 'Finance',
+                to: '/stats/finance'
+            },
+            {
+                label: 'Platforms',
+                to: '/stats/platform'
+            },
+            {
+                label: 'Dates',
+                to: '/stats/dates'
+            },
         ],
     },
     {

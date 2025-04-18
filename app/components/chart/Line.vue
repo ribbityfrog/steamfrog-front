@@ -2,7 +2,7 @@
 
 const props = defineProps({
     series: {
-        type: Array as PropType< { name?: string, data: { x: string, y: number }[] }[]>,
+        type: [Array, null] as PropType< { name?: string, data: { x: string, y: number }[] }[] | null>,
         required: true
     },
     labels: {

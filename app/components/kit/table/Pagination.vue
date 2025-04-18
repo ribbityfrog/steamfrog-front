@@ -6,6 +6,10 @@ const props = defineProps({
         type: Object as PropType<Table<any>>,
         required: true
     },
+    count: {
+        type: Number,
+        required: true
+    }
 })
 
 </script>
@@ -15,7 +19,7 @@ const props = defineProps({
         <UPagination
             :default-page="(props.table.getState().pagination.pageIndex || 0) + 1"
             :items-per-page="table.getState().pagination.pageSize" 
-            :total="table.getFilteredRowModel().rows.length"
+            :total="props.count"
             @update:page="(p: number) => table.setPageIndex(p - 1)"
         />
     </div>

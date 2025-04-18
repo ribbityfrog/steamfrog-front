@@ -28,7 +28,7 @@ const classH = `${props.center ? 'text-center' : ''} ${props.right ? 'text-right
 </script>
 
 <template>
-    <h3 :class="`font-title text-xl sm:text-2xl font-semibold !leading-tight ${classH}`">
+    <h3 :class="`font-title text-xl sm:text-xl font-semibold !leading-tight ${classH}`">
         <slot>{{ props.title }}</slot>
     </h3>
 </template>
