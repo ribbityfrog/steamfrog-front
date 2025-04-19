@@ -1,5 +1,13 @@
 <script setup lang="ts">
 
+useSeoMeta({
+    title: 'Steamfrog - Naming trends',
+    ogTitle: 'Steamfrog - Naming trends',
+    description: 'Find out instantly how many games include your chosen keywords in their name.',
+    ogDescription: 'Find out instantly how many games include your chosen keywords in their name.',
+    ogImage: '/img/brand/logo.png',
+})
+
 const keywords = reactive([])
 const andor = ref(false)
 
@@ -25,7 +33,8 @@ function search() {
 
 <template>
     <Page class="gap-y-8">
-        <Section title="Naming trends">
+        <Hh1>Naming trends</Hh1>
+        <Section>
             <Text>
                 <p>
                     The very first Steamfrog tool. 
