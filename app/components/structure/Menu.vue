@@ -51,14 +51,14 @@ const menus = {
                 label: 'Finance',
                 to: '/stats/finance'
             },
-            {
-                label: 'Platforms',
-                to: '/stats/platform'
-            },
-            {
-                label: 'Dates',
-                to: '/stats/dates'
-            },
+            // {
+            //     label: 'Platforms',
+            //     to: '/stats/platform'
+            // },
+            // {
+            //     label: 'Dates',
+            //     to: '/stats/dates'
+            // },
         ],
     },
     {

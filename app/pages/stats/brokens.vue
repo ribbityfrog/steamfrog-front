@@ -9,15 +9,42 @@ const columns = ['banner', 'id', 'name', 'isFree', 'price'] as const
 <template>
     <Page>
         <Hh1>Brokens</Hh1>
-        <Section title="No release date">
-            The games below seem to be released but have no release date, thus messing up some stats. <br>
-            They are either mods categorized as games or just "reasons". <br>
-            When they are not free but have no price, it's because they are not listed as free in the store but still have no listed price. They are usually actually free. <br>
-            Sometime you just can't buy/download/play them, they just exist nicely <br>
-            They are sorted thanks to their ID, so most likely from the most recent to the oldest <br>
+        <Section title="Very special thanks...">
+            <Text>
+                <p>
+                    I don't know if it's on steam or studio's end, but I had to remove some games from the stats for various reasons. <br>
+                </p>
+                <p>
+                    Mainly :
+                    <Uul>
+                        <li>The game is released with no release that (at least Steam API-wise)</li>
+                        <li>The game is not free but has no price</li>                     
+                    </Uul>
+                </p>
+                <p>
+                    There is usually a reason for it :
+                    <Uul>
+                        <li>Mods either undated or without pricing consideration</li>
+                        <li>Timestamp erronously set giving me a 0 in the API even if dated on the Store page</li>
+                        <li>"Test" app that went all the way but with a lack of content</li>
+                        <li>"Reasons"</li>
+                    </Uul>
+                </p>
+                <p>
+                    Any fix would be hazardous, temporary and heavily opinionated. <br>
+                    So... here is the list of the considered released games that are <Prom second>not in the statistics</Prom>
+                </p>
+                <p>
+                    <span class="text-xs">You can hate them a little with me, thanks</span> <br>
+                    <span class="text-[10px]">FTL why are you here :(</span>
+                </p>
+                <p>
+                    Since it's often undated, they are sorted by their API IDs
+                </p>
+            </Text>
         </Section>
         <ClientOnly>
-            <Section title="If there is no price, it's free">
+            <Section class="mt-12">
                 <SteamTable
                     v-model="brokens.data"
                     :loading="brokens.isFetching"

@@ -49,7 +49,7 @@ export default defineNuxtConfig({
             colors: ['primary', 'second', 'darkness', 'third', 'cancel', 'neutral', 'info', 'success', 'warning', 'error']
         },
     },
-    css: ['~/assets/css/main.css', '~/assets/css/apex.css'],
+    css: ['~/assets/css/tailwind.css', '~/assets/css/main.css', '~/assets/css/apex.css'],
     image: {
         providers: {
             launchbase: {
