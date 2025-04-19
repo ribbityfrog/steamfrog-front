@@ -5,9 +5,9 @@ toaster.init()
 useSeoMeta({
     title: 'Steamfrog',
     ogTitle: 'Steamfrog',
-    description: 'You never knew Steam store stats could trigger that many emotions.',
-    ogDescription: 'You never knew Steam store stats could trigger that many emotions.',
-    ogImage: '/img/brand/header.jpg',
+    description: 'Dive into Steam games and dlcs statistics and fun tools using finely collected, analyzed and filtered data.',
+    ogDescription: 'Dive into Steam games and dlcs statistics and fun tools using finely collected, analyzed and filtered data.',
+    ogImage: '/img/brand/logo.png',
 })
 
 </script>
