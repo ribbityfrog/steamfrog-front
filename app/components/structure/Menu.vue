@@ -62,6 +62,10 @@ const menus = {
         ],
     },
     {
+        label: 'Naming',
+        to: '/naming',
+    },
+    {
         label: 'FAQ',
         to: '/faq',
     }],

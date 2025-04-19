@@ -16,16 +16,16 @@ export const variants = {
 
 export const colors = {
     default: {
-        primary: 'bg-(--ui-primary) border-(--ui-primary) hover:text-(--ui-primary)',
-        second: 'bg-(--ui-second) border-(--ui-second) hover:text-(--ui-second)',
-        confirm: 'bg-(--ui-confirm) border-(--ui-confirm) hover:text-(--ui-confirm)',
-        cancel: 'bg-(--ui-cancel) border-(--ui-cancel) hover:text-(--ui-cancel)'
+        primary: 'bg-(--ui-primary) disabled:bg-(--ui-primary) border-(--ui-primary) hover:text-(--ui-primary)',
+        second: 'bg-(--ui-second) disabled:bg-(--ui-second) border-(--ui-second) hover:text-(--ui-second)',
+        confirm: 'bg-(--ui-confirm) disabled:bg-(--ui-confirm) border-(--ui-confirm) hover:text-(--ui-confirm)',
+        cancel: 'bg-(--ui-cancel) disabled:bg-(--ui-cancel) border-(--ui-cancel) hover:text-(--ui-cancel)'
     },
     invert: {
-        primary: 'hover:bg-(--ui-primary) border-(--ui-primary) text-(--ui-primary)',
-        second: 'hover:bg-(--ui-second) border-(--ui-second) text-(--ui-second)',
-        confirm: 'hover:bg-(--ui-confirm) border-(--ui-confirm) text-(--ui-confirm)',
-        cancel: 'hover:bg-(--ui-cancel) border-(--ui-cancel) text-(--ui-cancel)'
+        primary: 'hover:bg-(--ui-primary) disabled:bg-(--ui-primary) border-(--ui-primary) text-(--ui-primary)',
+        second: 'hover:bg-(--ui-second) disabled:bg-(--ui-second) border-(--ui-second) text-(--ui-second)',
+        confirm: 'hover:bg-(--ui-confirm) disabled:bg-(--ui-confirm) border-(--ui-confirm) text-(--ui-confirm)',
+        cancel: 'hover:bg-(--ui-cancel) disabled:bg-(--ui-cancel) border-(--ui-cancel) text-(--ui-cancel)'
     },
     link: {
         primary: 'text-(--ui-primary)',
