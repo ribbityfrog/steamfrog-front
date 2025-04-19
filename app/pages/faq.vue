@@ -149,7 +149,12 @@ const divSpace = 'space-y-2'
                     </p>
                 </template>
                 <template #logo>
-                    <img src="/img/brand/logo.png">
+                    <Flex col center>
+                        <img src="/img/brand/logo.png">
+                        <p class="text-center text-lg font-semibold text-(--ui-primary)">
+                            ribbit
+                        </p>
+                    </Flex>
                 </template>
             </KitAccordion>
         </Section>
