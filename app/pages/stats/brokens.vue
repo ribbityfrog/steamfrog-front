@@ -12,13 +12,13 @@ const columns = ['banner', 'id', 'name', 'isFree', 'price'] as const
         <Section title="Very special thanks...">
             <Text>
                 <p>
-                    I don't know if it's on steam or studio's end, but I had to remove some games from the stats for various reasons. <br>
+                    to or steam or studios, I don't know, but I had to remove some apps from the stats for various reasons. <br>
                 </p>
                 <p>
                     Mainly :
                     <Uul>
-                        <li>The game is released with no release that (at least Steam API-wise)</li>
-                        <li>The game is not free but has no price</li>                     
+                        <li>The app is released with no release that (at least Steam API-wise)</li>
+                        <li>The app is not free but has no price</li>                     
                     </Uul>
                 </p>
                 <p>

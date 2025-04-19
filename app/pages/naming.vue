@@ -25,7 +25,35 @@ function search() {
 
 <template>
     <Page class="gap-y-8">
-        <Section class-content="gap-y-4">
+        <Section title="Naming trends">
+            <Text>
+                <p>
+                    The very first Steamfrog tool. 
+                </p>
+                <p>
+                    Simple concept, you enter <Prom>keywords</Prom> and it tells you how many <Prom>games</Prom> have them in their name. <br>
+                    You can also select if the game must have <Prom second>all</Prom> or <Prom second>at least one</Prom> of the <Prom>keywords</Prom>.
+                </p>
+                <p>
+                    Some ground rules :
+                    <Uul>
+                        <li>Case insensitive</li>
+                        <li>Max 32 characters in a keyword (can be several words)</li>
+                        <li>Max 16 keywords</li>
+                        <li>Works with foreign characters and emojis</li>
+                        <li>Only for released not broken games for now</li>
+                    </Uul>
+                </p>
+                <p>
+                    Coming later :
+                    <Uul>
+                        <li>List of most recent and most liked found games</li>
+                        <li>Adding yearly trends</li>
+                    </Uul>
+                </p>
+            </Text>
+        </Section>
+        <Section class-content="gap-y-4 mt-6">
             <TagKeywords v-model="keywords" v-model:andor="andor" />
             <Flex center class="gap-x-4 mt-4">
                 <KitButton :disabled="keywords.length <= 0" :loading="isSearching" @click="search()">Search</KitButton>
