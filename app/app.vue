@@ -7,7 +7,7 @@ useSeoMeta({
     ogTitle: 'Steamfrog',
     description: 'You never knew Steam store stats could trigger that many emotions.',
     ogDescription: 'You never knew Steam store stats could trigger that many emotions.',
-    ogImage: '/img/brand/logo.png',
+    ogImage: '/img/brand/header.jpg',
 })
 
 </script>
