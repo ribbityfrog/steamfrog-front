@@ -25,7 +25,7 @@ const serieValueComparison = computed(() => {
 
 <template>
     <Page>
-        <Hh1>Finance</Hh1>
+        <Hh1>Store value</Hh1>
         <Section>
             <div class="text-center space-y-1">
                 <p>
@@ -34,7 +34,7 @@ const serieValueComparison = computed(() => {
             </div>
         </Section>
         <Section title="It's free :)" class-content="gap-y-6">
-            <Text>
+            <Text class="text-center">
                 <p>
                     A lot of people play <Prom>free</Prom> games on Steam. <br>
                 </p>

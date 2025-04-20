@@ -8,26 +8,26 @@
         <Section class="text-center" class-content="gap-y-4">
             <p>
                 I was looking for stats about the Steam Store, but nothing tickled my fancy. <br>
-                So... let's build it, it'll be fun somehow
+                So... let's build it, it'll be fun somehow !
             </p>
             <p>
                 As you may have noticed, it's <span class="font-semibold">under construction</span> <br>
-                I'm working from time to time on it, resetting the whole db a lot, so it'll be done from time to time ^^
+                I'm working on it from time to time, resetting the whole db a lot, so it'll be down here and there ^^
             </p>
             <p>
-                I gathered a lot of data, but there are still tackled with my own opinions <br>
+                I gathered a lot of data, but the statistics are objectively opinionated <br>
                 You can read more about it in the <KitLink to="/faq" local>FAQ</KitLink> or directly come ask on <LinkDiscord />
             </p>
             <p>
                 <span class="font-semibold">Full disclaimer</span> <br>
-                I intend to share and make the most of it <br>
-                If you want "my" data for your project, I'm fully open to talk about anything... related to it
+                I will eventually make is as open as possible <br>
+                If you want to create a project from the data I'm using, let's talk about it :)
             </p>
         </Section>
-        <Section title="Sculpted thanks to" title-center class="text-center mt-12" class-content="gap-y-4">
+        <Section title="Sculpted thanks to" title-center class="text-center mt-8" class-content="gap-y-4">
             <div class="space-y-2">
                 <p>
-                    The main tools I used will never be thanked enough<br>
+                    Thanks to all the frameworks/tools I'm using<br>
                     Let's make it kind of visible
                 </p>
                 <Flex col class="gap-y-1">

@@ -16,6 +16,7 @@ const isSearching = ref(false)
 const results: Ref<{
     count: number
     last: any[]
+    chart: any
     andor: boolean
     keywords: string[]
 }[]> = ref([])
@@ -24,7 +25,24 @@ function search() {
     isSearching.value = true
     leFetch.post('/tools/naming', { keywords: keywords, andor: andor.value }, {
         success: [(p) =>
-            results.value.unshift({ count: p.data.count, last: p.data.last, andor: andor.value, keywords: [...keywords] })
+        {
+            let count = 0
+
+            const chart = p.data.count.reduce((acc: Record<string, ({ x: string, y: number } | string)[]>, entry: any) => {
+
+                count += entry.count
+
+                acc.year!.push(entry.year)
+                acc.count!.push({ x: entry.year, y: entry.count })
+
+                return acc
+            }, {
+                year: [],
+                count: []
+            })
+
+            results.value.unshift({ count, chart, last: p.data.last, andor: andor.value, keywords: [...keywords] })
+        }
         ],
         anyway: [() => isSearching.value = false]
     })
@@ -62,9 +80,13 @@ function search() {
             </Flex>
         </Section>
         <Section v-if="results.length > 0">
-            <Flex center class="gap-y-2">
-                <span class="font-semibold text-(--ui-primary)">{{ results[0]!.count }} game{{ results[0]!.count > 1 ? 's' : '' }}</span> have <span class="text-(--ui-second)">{{ results[0]!.andor ? 'at least one' : 'all of the' }}</span> following keywords in their name : <br>
-                <span class="font-medium text-(--ui-second)">{{ results[0]!.keywords.join(' - ') }}</span>
+            <Flex col center class="gap-y-1">
+                <p>
+                    <span class="font-semibold text-(--ui-primary)">{{ results[0]!.count }} game{{ results[0]!.count > 1 ? 's' : '' }}</span> have <span class="text-(--ui-second)">{{ results[0]!.andor ? ' at least one ' : ' all of the ' }}</span> following keywords in their name
+                </p>
+                <p>
+                    <span class="font-medium text-(--ui-second)">{{ results[0]!.keywords.join(' - ') }}</span>
+                </p>
             </Flex>
             <!-- <TransitionGroup name="slide-fade" tag="div" mode="out-in" class="text-center space-y-2">
                 <div v-for="(result, i) in results" :key="i">
@@ -73,13 +95,23 @@ function search() {
                 </div>
             </TransitionGroup> -->
         </Section>
-        <Section v-if="results.length > 0">
-            <SteamTable
-                v-model="results[0]!.last"
-                :columns="['banner', 'releaseDate', 'name', 'isFree', 'priceFinal']"
-                sticky
-                filterable
-                h-max="h-150" />
+        <Section v-if="results.length > 0 && results[0]!.count > 0" group>
+            <Section
+                title="Yearly usage of your keywords" >
+                <ChartLine
+                    size="lg"
+                    :data="results[0]!.count > 0" 
+                    :labels="results[0]!.chart.year"
+                    :series="[{ name: '', data: results[0]!.chart.count }]" />
+            </Section>
+            <Section title="Last released games with your keywords" class="mt-12">
+                <SteamTable
+                    v-model="results[0]!.last"
+                    :columns="['banner', 'releaseDate', 'name', 'isFree', 'priceFinal']"
+                    sticky
+                    filterable
+                    h-max="sm:h-150" />
+            </Section>
         </Section>
     </Page>
 </template>

@@ -40,16 +40,29 @@ const menus = {
         to: '/stats',
         children: [
             {
-                label: 'Basics',
+                label: 'Basics and content',
+                description: 'Some ground stats',
                 to: '/stats'
             },
             {
                 label: 'Brokens',
+                description: 'Excluded games from stats',
                 to: '/stats/brokens'
             },
             {
-                label: 'Finance',
+                label: 'Mac & Linux',
+                description: 'Games not on Windows ?',
+                to: '/stats/platforms'
+            },
+            {
+                label: 'Store value',
+                description: 'Free, Paid and more',
                 to: '/stats/finance'
+            },
+            {
+                label: 'Release strategy',
+                description: 'Release dates distribution',
+                to: '/stats/schedule'
             },
             // {
             //     label: 'Platforms',
@@ -63,7 +76,7 @@ const menus = {
     },
     {
         label: 'Naming',
-        to: '/naming',
+        to: '/tools/naming',
     },
     {
         label: 'FAQ',

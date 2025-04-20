@@ -1,19 +1,20 @@
 <script setup lang="ts">
 
-const stats = leFetch.get('/stats/global', {}, { memory: 'PERSISTENT' })
+const stats = leFetch.get('/stats/temp/platforms', {}, { memory: 'PERSISTENT' })
+const windowsless = leFetch.get('/stats/windowsless', {}, { memory: 'PERSISTENT' })
 
 const totalCounts = computed(() => {
     if (!(stats.status === 'SUCCESSFUL'))
         return null
     return stats.data.reduce((acc: Record<string, number>, entry: any) => {
-        acc.gamesCount += entry.meta.games_count
-        acc.dlcsCount += entry.meta.dlcs_count
-        acc.gamesWindowsCount += entry.meta.games_windows_count
-        acc.gamesMacCount += entry.meta.games_mac_count
-        acc.gamesLinuxCount += entry.meta.games_linux_count
-        acc.dlcsWindowsCount += entry.meta.dlcs_windows_count
-        acc.dlcsMacCount += entry.meta.dlcs_mac_count
-        acc.dlcsLinuxCount += entry.meta.dlcs_linux_count
+        acc.gamesCount += entry.games_count
+        acc.dlcsCount += entry.dlcs_count
+        acc.gamesWindowsCount += entry.games_windows_count
+        acc.gamesMacCount += entry.games_mac_count
+        acc.gamesLinuxCount += entry.games_linux_count
+        acc.dlcsWindowsCount += entry.dlcs_windows_count
+        acc.dlcsMacCount += entry.dlcs_mac_count
+        acc.dlcsLinuxCount += entry.dlcs_linux_count
         return acc
     }, {
         gamesCount: 0,
@@ -33,18 +34,18 @@ const yearlyCounts = computed(() => {
         return null
 
     return stats.data.reduce((acc: Record<string, ({ x: string, y: number } | string)[]>, entry: any) => {
-        if (!entry.meta.release_year)
+        if (!entry.release_year)
             return acc
 
-        acc.year!.push(entry.meta.release_year)
-        acc.gamesCount!.push({ x: entry.meta.release_year, y: entry.meta.games_count })
-        acc.gamesWindowsCount!.push({ x: entry.meta.release_year, y: entry.meta.games_windows_count })
-        acc.gamesMacCount!.push({ x: entry.meta.release_year, y: entry.meta.games_mac_count })
-        acc.gamesLinuxCount!.push({ x: entry.meta.release_year, y: entry.meta.games_linux_count })
-        acc.dlcsCount!.push({ x: entry.meta.release_year, y: entry.meta.dlcs_count })
-        acc.dlcsWindowsCount!.push({ x: entry.meta.release_year, y: entry.meta.dlcs_windows_count })
-        acc.dlcsMacCount!.push({ x: entry.meta.release_year, y: entry.meta.dlcs_mac_count })
-        acc.dlcsLinuxCount!.push({ x: entry.meta.release_year, y: entry.meta.dlcs_linux_count })
+        acc.year!.push(entry.release_year)
+        acc.gamesCount!.push({ x: entry.release_year, y: entry.games_count })
+        acc.gamesWindowsCount!.push({ x: entry.release_year, y: entry.games_windows_count })
+        acc.gamesMacCount!.push({ x: entry.release_year, y: entry.games_mac_count })
+        acc.gamesLinuxCount!.push({ x: entry.release_year, y: entry.games_linux_count })
+        acc.dlcsCount!.push({ x: entry.release_year, y: entry.dlcs_count })
+        acc.dlcsWindowsCount!.push({ x: entry.release_year, y: entry.dlcs_windows_count })
+        acc.dlcsMacCount!.push({ x: entry.release_year, y: entry.dlcs_mac_count })
+        acc.dlcsLinuxCount!.push({ x: entry.release_year, y: entry.dlcs_linux_count })
 
         return acc
     }, {
@@ -64,16 +65,17 @@ const yearlyCounts = computed(() => {
 
 <template>
     <Page>
-        <Hh1>Global basics</Hh1>
+        <Hh1>Mac & Linux</Hh1>
         <Section class="mb-12" class-content="text-center gap-y-3">
-            <p>
-                You can find global data about the number of games and dlcs. <br>
-                I'm having a hard time customizing the charts the way I want, bare me with a little while please :x
-            </p>
-            <p>
-                On April and maybe May, I'm gonna reset the base daily to fix some incoherence <br>
-                The stats will often look weird and will change a lot, I'm sorry :/
-            </p>
+            <Text>
+
+                <p>
+                    "When you want to game, you need <Prom>Windows</Prom>"
+                </p>
+                <p>
+                    Do you agree ? Well, let's see how <Prom>MacOS</Prom> and <Prom>Linux</Prom> fare
+                </p>
+            </Text>
         </Section>
         <Section v-if="!stats.isSuccessful">
             <p class="text-center text-xl sm:text-4xl animate-bounce text-(--ui-second)">
@@ -83,13 +85,6 @@ const yearlyCounts = computed(() => {
         <ClientOnly>
             <Section v-if="stats.isSuccessful" goup class-content="gap-y-12">
                 <Section class-content="gap-y-12">
-                    <Flex>
-                        <ChartPie
-                            title="Games VS DLCs"
-                            subtitle="Number of games VS number of DLCs"
-                            :labels="['Games', 'DLCs']"
-                            :series="[totalCounts.gamesCount, totalCounts.dlcsCount]" />
-                    </Flex>
                     <Flex full evenly wrap class="gap-y-8">
                         <ChartBar
                             horizontal
@@ -133,7 +128,16 @@ const yearlyCounts = computed(() => {
                             }]" />
                     </Flex>
                 </Section>
-                <Section v-if="yearlyCounts">
+                <Section v-if="yearlyCounts" title="Trends">
+                    <Text class="text-center">
+                        <p>
+                            It's not encouraging, and sadly so is the general <Prom>trend</Prom>
+                        </p>
+                        <p>
+                            Even if the number or games are fastly increasing every year, <br>
+                            it doesn't seem to be the case for everyone.
+                        </p>
+                    </Text>
                     <ChartLine
                         size="lg"
                         title="Distribution per year"
@@ -177,6 +181,24 @@ const yearlyCounts = computed(() => {
                             },
                         ]"
                     />
+                </Section>
+                <Section title="They chose not to be on Windows">
+                    <Text class="text-center">
+                        <p>
+                            You probably noticed not all the games are on <Prom>Windows</Prom> <br>
+                            Here is the list of the braves
+                        </p>
+                        <p class="text-sm">
+                            Except games like <Prom second>Arma</Prom>, making a special Mac and/or Linux version.
+                        </p>
+                    </Text>
+                    <SteamTable
+                        v-model="windowsless.data"
+                        h-max="h-150"
+                        :loading="windowsless.isFetching"
+                        :columns="['banner', 'id', 'name', 'isFree', 'priceFinal']"
+                        sticky
+                        filterable />
                 </Section>
             </Section>
         </ClientOnly>

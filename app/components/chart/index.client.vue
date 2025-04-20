@@ -4,7 +4,7 @@
 
 const props = defineProps({
     type: {
-        type: String as PropType<'pie' | 'donut' | 'radar' | 'bar' | 'line'>,
+        type: String as PropType<'pie' | 'donut' | 'radar' | 'bar' | 'line' | 'heatmap'>,
         required: true
     },
     labels: {
@@ -108,9 +108,6 @@ const computedOptions = computed(() => ({
             }
         },
         legend: {
-            labels: {
-                // colors: colors.value.text
-            }
         },
         tooltip: {
             enabled: props.type === 'bar' ? false : true,

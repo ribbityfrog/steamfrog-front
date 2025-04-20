@@ -13,10 +13,6 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    smooth: {
-        type: Boolean,
-        default: false
-    },
     options: {
         type: Object as PropType<any>,
         default: () => ({})
@@ -26,9 +22,9 @@ const props = defineProps({
 const mergedPptions = {
     ...{
         plotOptions: {
-        },
-        stroke: {
-            curve: props.smooth ? 'smooth' : 'straight'
+            heatmap: {
+                distributed: props.distributed,
+            }
         },
         yaxis: {
         }
@@ -40,7 +36,7 @@ const mergedPptions = {
 
 <template>
     <Chart
-        type="line"
+        type="heatmap"
         :labels="props.labels"
         :options="mergedPptions"
         :series="props.series" />
