@@ -74,13 +74,13 @@ const serieValueComparison = computed(() => {
                     <p>
                         Let's try to put things in perspective :
                         <Uul v-if="finance.isSuccessful && count.isSuccessful">
-                            <li><Prom second>Games</Prom> <Prom>initial price</Prom> sum : <em>{{ numberToPrice(finance.data.games_price_initial_sum) }}</em></li>
-                            <li><Prom second>Games</Prom> <Prom>selling price</Prom> sum : <em>{{ numberToPrice(finance.data.games_price_final_sum) }}</em></li>
-                            <li><Prom>Average</Prom> <Prom second>game</Prom> <Prom>initial price</Prom> : <em>{{ numberToPrice(finance.data.games_price_initial_avg) }}</em></li>
+                            <li><Prom second>Games</Prom> <Prom>initial price</Prom> sum : <em>{{ numberToPrice(finance.data.games_price_initial_sum, true) }}</em></li>
+                            <li><Prom second>Games</Prom> <Prom>selling price</Prom> sum : <em>{{ numberToPrice(finance.data.games_price_final_sum, true) }}</em></li>
+                            <li><Prom>Average</Prom> <Prom second>game</Prom> <Prom>initial price</Prom> : <em>{{ numberToPrice(finance.data.games_price_initial_avg, true) }}</em></li>
                             <li><Prom>Average</Prom> <Prom second>game</Prom> <Prom>discount</Prom> : <em>{{ finance.data.games_price_discount_avg }}%</em></li>
-                            <li class="mt-2"><Prom second>DLCs</Prom> <Prom>initial price</Prom> sum : <em>{{ numberToPrice(finance.data.dlcs_price_initial_sum) }}</em></li>
-                            <li><Prom second>DLCs</Prom> <Prom>selling price</Prom> sum : <em>{{ numberToPrice(finance.data.dlcs_price_final_sum) }}</em></li>
-                            <li><Prom>Average</Prom> <Prom second>DLC</Prom> <Prom>initial price</Prom> : <em>{{ numberToPrice(finance.data.dlcs_price_initial_avg) }}</em></li>
+                            <li class="mt-2"><Prom second>DLCs</Prom> <Prom>initial price</Prom> sum : <em>{{ numberToPrice(finance.data.dlcs_price_initial_sum, true) }}</em></li>
+                            <li><Prom second>DLCs</Prom> <Prom>selling price</Prom> sum : <em>{{ numberToPrice(finance.data.dlcs_price_final_sum, true) }}</em></li>
+                            <li><Prom>Average</Prom> <Prom second>DLC</Prom> <Prom>initial price</Prom> : <em>{{ numberToPrice(finance.data.dlcs_price_initial_avg, true) }}</em></li>
                             <li><Prom>Average</Prom> <Prom second>DLC</Prom> <Prom>discount</Prom> : <em>{{ finance.data.dlcs_price_discount_avg }}%</em></li>
                         </Uul>
                     </p>

@@ -20,6 +20,13 @@ const tmplColumns = {
         header: '#',
         sortable: true
     },
+    releaseDate: {
+        id: 'release',
+        accessorKey: 'release.date',
+        header: 'Release date',
+        date: true,
+        sortable: true
+    },
     name: {
         accessorKey: 'name',
         header: 'Name',
@@ -31,12 +38,20 @@ const tmplColumns = {
         bool: true,
         sortable: true
     },
-    price: {
-        accessorKey: 'price',
-        header: 'Price',
+    priceFinal: {
+        id: 'priceFinal',
+        accessorKey: 'pricing.priceFinal',
+        header: 'Current price',
         price: true,
         sortable: true
-    }
+    },
+    priceInitial: {
+        id: 'priceInitial',
+        accessorKey: 'pricing.priceInitial',
+        header: 'Original price',
+        price: true,
+        sortable: true
+    },
 }
 
 const selectedColumns = props.columns.reduce<any[]>((acc, curr) => {

@@ -143,7 +143,7 @@ props.columns.forEach((entry: any) => {
                     label: 'Hide',
                     onSelect: () => columnVisibilitySelected.value.push(hideables.value.find((entry) => entry.id === column.id)!)
                 }]
-            }, () => h('p', header))
+            }, () => h('p', { class: 'text-center' }, header))
         
         if ((props.sortable || sortable))
         {
@@ -160,7 +160,7 @@ props.columns.forEach((entry: any) => {
                     interactable: true,
                     onClick: () => column.toggleSorting()
                 }),
-                hideMenu ?? h('p', header)
+                hideMenu ?? h('p', { class: 'text-center' }, header)
             ] )
         }
         else

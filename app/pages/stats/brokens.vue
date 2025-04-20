@@ -2,7 +2,7 @@
 
 const brokens = leFetch.get('/stats/brokens', {}, { memory: 'PERSISTENT' })
 
-const columns = ['banner', 'id', 'name', 'isFree', 'price'] as const
+const columns = ['banner', 'id', 'name', 'isFree', 'priceFinal'] as const
 
 </script>
 
